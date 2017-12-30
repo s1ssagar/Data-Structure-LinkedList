@@ -42,8 +42,22 @@ class bst:
             self.print_inorder(node.right)
         return self.arr
 
+    def search_data(self,node,data):
+        while node != None:
+            if node.data == data:
+                return True
+            elif data > node.data:
+                node = node.right
+            else:
+                node = node.left
+        return False
+    
+    def search(self,data):
+        return self.search_data(self.btree,data)
+
 b_tree = bst()
-for x in range(100,1,-1):
+for x in range(100,0,-1):
     b_tree.add(x)
 time = datetime.now()
-print b_tree.inorder()
+print b_tree.search(25)
+print datetime.now() - time
